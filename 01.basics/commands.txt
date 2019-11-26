@@ -1,0 +1,4 @@
+1. npm init -y
+2. npm install --save next react react-dom
+3. Next will look for pages folder where are the files for routing
+4. The same Next will look for static folder where is the css
