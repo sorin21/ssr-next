@@ -17,9 +17,11 @@ const MainLayout = props => {
         />
         <link href="/static/css/styles.css" rel="stylesheet" />
       </Head>
-      <div className="mainLayout container">
+      <div className="mainLayout_container">
         <Header />
-        {props.children}
+        <div className="container">
+          {props.children}
+        </div>
       </div>
 
     </div>
