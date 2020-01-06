@@ -1,0 +1,24 @@
+1. npm init -y
+
+2. We don't use the react CLI, we use this
+  npm install --save next react react-dom
+
+3. We have to let node to know than we want to start nextjs server. We add this in package.json
+  - dev is testing server
+  "dev": "next",
+  - when we finish we run build to upload project to real server
+  "build": "next build",
+  "start": "next start"
+
+4. Next has to know about our pages, so we create pages folder
+
+5. Run NextJS server:
+  npm run dev
+
+  - when we run 1st time this command, next will create a .next folder
+  - we have HOT Reloading, so on any change, will reload page automatically
+
+6. We are using Link in header, to not reload the page, when we click on new link in menu,
+  because if we use simple <a></a> the page will reload on a new menu link
+
+7. We create mainLayout.js and we wrap all pages that we need the navigation menu
