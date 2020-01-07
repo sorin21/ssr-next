@@ -5157,7 +5157,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "D:\\Programming\\06.coding-revolution\\01.ssr\\01.basics-again\\.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/.next");
       return error;
     }
   };

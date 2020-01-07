@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,19 +106,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "D:\\Programming\\06.coding-revolution\\01.ssr\\01.basics-again\\components\\includes\\header.js";
+var _jsxFileName = "/Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/components/includes/header.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 const Header = () => {
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
+  return __jsx("header", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: "container",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: undefined
-  }, "React - NextJS"), __jsx("nav", {
+  }, __jsx("nav", {
+    className: "navbar navbar-expand-lg navbar-light",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -132,38 +140,69 @@ const Header = () => {
     },
     __self: undefined
   }, __jsx("a", {
+    className: "navbar-brand",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
+  }, "NEXT JS")), __jsx("div", {
+    className: "collapse navbar-collapse",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: undefined
-  }, "Home")), " ", "-", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/about",
+  }, __jsx("div", {
+    className: "navbar-nav",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: undefined
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: undefined
+  }, __jsx("a", {
+    className: "nav-item nav-link",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
     },
     __self: undefined
-  }, __jsx("a", {
+  }, "Home")), " ", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: undefined
-  }, "About")), " ", "-", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, __jsx("a", {
+    className: "nav-item nav-link",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: undefined
+  }, "About")), " ", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/users",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17
-    },
-    __self: undefined
-  }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: undefined
-  }, "Users")), " ", "-", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, __jsx("a", {
+    className: "nav-item nav-link",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: undefined
+  }, "Users")), " ", __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/contact",
     __source: {
       fileName: _jsxFileName,
@@ -171,12 +210,13 @@ const Header = () => {
     },
     __self: undefined
   }, __jsx("a", {
+    className: "nav-item nav-link",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 22
     },
     __self: undefined
-  }, "Contact"))));
+  }, "Contact")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -197,7 +237,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _includes_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../includes/header */ "./components/includes/header.js");
-var _jsxFileName = "D:\\Programming\\06.coding-revolution\\01.ssr\\01.basics-again\\components\\layouts\\mainLayout.js";
+var _jsxFileName = "/Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/components/layouts/mainLayout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -216,7 +256,7 @@ const MainLayout = props => {
       lineNumber: 9
     },
     __self: undefined
-  }, "Next JS Application"), __jsx("link", {
+  }, "NextJS Application"), __jsx("link", {
     href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
     rel: "stylesheet",
     __source: {
@@ -367,6 +407,36 @@ module.exports = __webpack_require__(/*! core-js/library/fn/symbol/iterator */ "
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/weak-map */ "core-js/library/fn/weak-map");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 /***/ }),
 
@@ -2090,29 +2160,117 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/layouts/mainLayout */ "./components/layouts/mainLayout.js");
-var _jsxFileName = "D:\\Programming\\06.coding-revolution\\01.ssr\\01.basics-again\\pages\\index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/layouts/mainLayout */ "./components/layouts/mainLayout.js");
+
+var _jsxFileName = "/Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/pages/index.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
 
  // import css from '../styles/main.css';
 
-class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+class Home extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
+      user: this.props.user,
+      userData: this.props.userData
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "renderUserList", users => {
+      return users.map((user, index) => __jsx("li", {
+        key: index,
+        className: "list-group-item",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        href: {
+          pathname: '/users/profile',
+          query: {
+            userId: user.id
+          }
+        },
+        as: `/users/profile/${user.id}`,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        },
+        __self: this
+      }, __jsx("a", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
+        },
+        __self: this
+      }, user.name))));
+    });
+  }
+
+  static async getInitialProps({
+    pathname,
+    query,
+    asPath,
+    req,
+    res
+  }) {
+    let userData;
+
+    try {
+      const response = await axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("https://jsonplaceholder.typicode.com/users");
+      userData = response.data;
+    } catch (error) {
+      console.log(error);
+    } // NextJS will take this returned object and inject it, as props, in the actual component
+
+
+    return {
+      user: {
+        firstName: "Sorin",
+        lastName: "Dragomir"
+      },
+      userData
+    };
+  }
+
   render() {
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    // console.log(this.props)
+    return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 49
+      },
+      __self: this
+    }, __jsx(_components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50
       },
       __self: this
     }, __jsx("h1", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
+        lineNumber: 51
       },
       __self: this
-    }, "Welcome to NextJS")));
+    }, "Select an user"), __jsx("ul", {
+      className: "list-group",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 52
+      },
+      __self: this
+    }, this.renderUserList(this.props.userData))));
   }
 
 }
@@ -2121,15 +2279,26 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Programming\06.coding-revolution\01.ssr\01.basics-again\pages\index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
 
 /***/ }),
 

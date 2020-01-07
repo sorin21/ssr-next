@@ -22,3 +22,71 @@
   because if we use simple <a></a> the page will reload on a new menu link
 
 7. We create mainLayout.js and we wrap all pages that we need the navigation menu
+
+8. Lifecycless
+  getInitialProps(context) 
+    - we gave access to props on every page from Pages. They are available  before the class constructor
+    This function must return an object. NextJS will take this returned object and inject it, as props, in the actual component
+    - context has all info about the request
+    - we destruct context and we get {pathname, query, asPath, req, res}
+    query = if we have querys localhost:3000/?hello=name and we get an obj {hello: 'name'}
+    asPath = same like query, but we get a string not an object /?hello:name
+
+9. Use a fake online json to get users
+  https://jsonplaceholder.typicode.com/users
+
+
+10. Style
+  1. Inline Style 
+    <div style={{color: 'red'}}
+
+  2. Styled JSX
+    <div className="jsxStyled">Style with styled jsx</div>
+    <style jsx>
+      {`
+        .jsxStyled {
+          color: blue;
+        }
+      `}
+    </style>
+
+  3. Old School link css in <head>
+    <link href="/static/css/styles.css" rel="stylesheet" />
+
+    We add this line in mainLayout
+
+10. <Head>
+  We import Head from next and what ever we put inside this component, next will put it inside html <head></head>
+  import Head from "next/head";
+
+  We add Bootstrap and Google Fonts using links, inside this Head
+
+11. Static Folder
+  Next will recognize any static file in the static folder
+
+12. Less, Sass, CSS 
+  https://github.com/zeit/next-plugins
+
+13. Query Strings
+  <Link href={{ pathname: '/users/profile', query: { userId: user.id } }}>
+
+  That is in index.js
+  So we are going to pathname profile and we pass query string {{ pathname: '/users/profile', query: { userId: user.id } }}
+
+14. Params
+  as={`/users/profile/${user.id}`}
+  <Link href={{ pathname: '/users/profile', query: { userId: user.id } }} as={`/users/profile/${user.id}`}>
+
+  So we are masking the real url pathname: '/users/profile' with the fake one as={`/users/profile/${user.id}`}
+
+15. Server Side support for clean URLs
+  We need to install Express to give support for some custom urls. Everything else will be handle by nextjs.
+  We create server.js to let nextjs to know about express.
+  We change in package.json from
+    "start": "next start"
+      to
+    "start": "NODE_ENV=production node server.js"
+    we want to start node with server.js
+
+    and 
+    "dev": "node server.js"
