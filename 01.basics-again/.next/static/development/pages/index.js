@@ -11450,7 +11450,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "/Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
 
 
@@ -11484,12 +11483,7 @@ function (_Component) {
       return users.map(function (user, index) {
         return __jsx("li", {
           key: index,
-          className: "list-group-item",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 37
-          },
-          __self: this
+          className: "list-group-item"
         }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_10___default.a, {
           href: {
             pathname: '/users/profile',
@@ -11497,19 +11491,8 @@ function (_Component) {
               userId: user.id
             }
           },
-          as: "/users/profile/".concat(user.id),
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 39
-          },
-          __self: this
-        }, __jsx("a", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 40
-          },
-          __self: this
-        }, user.name)));
+          as: "/users/profile/".concat(user.id)
+        }, __jsx("a", null, user.name)));
       });
     });
 
@@ -11519,32 +11502,9 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Home, [{
     key: "render",
     value: function render() {
-      // console.log(this.props)
-      return __jsx("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 49
-        },
-        __self: this
-      }, __jsx(_components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 50
-        },
-        __self: this
-      }, __jsx("h1", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 51
-        },
-        __self: this
-      }, "Select an user"), __jsx("ul", {
-        className: "list-group",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 52
-        },
-        __self: this
+      console.log(this.props);
+      return __jsx("div", null, __jsx(_components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_11__["default"], null, __jsx("h1", null, "Select an user"), __jsx("ul", {
+        className: "list-group"
       }, this.renderUserList(this.props.userData))));
     }
   }], [{

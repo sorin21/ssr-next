@@ -1,0 +1,5 @@
+1. npm init -y
+2. npm i next react react-dom redux react-redux redux-devtool-extension redux-promise axios
+
+3. Create a lib, pages, store folders
+4. Create _app.js in pages

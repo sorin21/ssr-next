@@ -2169,7 +2169,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/layouts/mainLayout */ "./components/layouts/mainLayout.js");
 
-var _jsxFileName = "/Users/sorinel.dragomir/programming/04.next/01.ssr-next/01.basics-again/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -2188,12 +2187,7 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "renderUserList", users => {
       return users.map((user, index) => __jsx("li", {
         key: index,
-        className: "list-group-item",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
+        className: "list-group-item"
       }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
         href: {
           pathname: '/users/profile',
@@ -2201,19 +2195,8 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
             userId: user.id
           }
         },
-        as: `/users/profile/${user.id}`,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
-      }, __jsx("a", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 40
-        },
-        __self: this
-      }, user.name))));
+        as: `/users/profile/${user.id}`
+      }, __jsx("a", null, user.name))));
     });
   }
 
@@ -2244,32 +2227,9 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
   }
 
   render() {
-    // console.log(this.props)
-    return __jsx("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
-    }, __jsx(_components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 50
-      },
-      __self: this
-    }, __jsx("h1", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
-    }, "Select an user"), __jsx("ul", {
-      className: "list-group",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
+    console.log(this.props);
+    return __jsx("div", null, __jsx(_components_layouts_mainLayout__WEBPACK_IMPORTED_MODULE_4__["default"], null, __jsx("h1", null, "Select an user"), __jsx("ul", {
+      className: "list-group"
     }, this.renderUserList(this.props.userData))));
   }
 
