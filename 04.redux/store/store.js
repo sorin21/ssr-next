@@ -1,14 +1,23 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import promiseMiddleware from 'redux-promise'
+import thunk from 'redux-thunk';
 
 import Reducers from './reducers';
 
-const store = (preloadedState = initialState) => {
+const exampleInitialState = {
+  users: [{
+    name: 'Steve',
+    lastname: 'Jones'
+  }]
+}
+// const initialState = {};
+const middleware = [thunk];
+
+const store = (initialState = exampleInitialState) => {
   return createStore(
     Reducers,
-    preloadedState,
-    composeWithDevTools(applyMiddleware(promiseMiddleware))
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
   )
 }
 

@@ -1,3 +1,5 @@
+import { GET_USERS } from '../actions'
+
 const usersReducer = (state = null, action) => {
   switch (action.type) {
     case GET_USERS:
@@ -10,3 +12,5 @@ const usersReducer = (state = null, action) => {
       return state;
   }
 }
+
+export default usersReducer;
