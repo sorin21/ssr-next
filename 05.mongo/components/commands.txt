@@ -1,0 +1,44 @@
+1. Install mongoose
+  https://mongoosejs.com/
+
+2. Install dotenv
+  - to load environment variables from a .env file into process.env
+  - we to .ignore this file, because has sesitive information
+  - without NextJS using .env will be very easy, but with NextJS is harder
+  npm i dotenv
+
+  https://jaketrent.com/post/environment-variables-in-nextjs/
+
+  
+3. Install next-compose-plugins
+  - to use more modules in next.config.js
+  npm i next-compose-plugins
+
+  - add in server.js for mongoose.connect process.env.MONGO_SERV
+
+4. Create the models folder and users.js schema
+  - import users.js inside server.js and create routes
+
+5. Install nodemon
+  npm i nodemon
+   - create nodemon.json file, otherwise nodemon will be in an infinite loop
+   https://whoisryosuke.com/blog/2018/nextjs-tip-hot-reloading-for-dynamic-servers/
+
+6. Use Postman
+  When we use POST and PATCH in Postman we MUST to add in Header Content-type: application/json 
+  and inside Body, click Raw, and add the object with data:
+    {
+      "firstname":"Sorinel",
+      "lastname": "Dragomir",
+      "age": 28
+    }
+
+7. Install Formik forms
+  npm i formik
+
+8. SEO 
+  Add inside mainLayout.js meta tags for content and keywords.
+  https://ogp.me/
+
+  Create a robots.txt  file inside static folder. The google robots will search for this file. Create a get route for this file in server.js
+  https://www.robotstxt.org/

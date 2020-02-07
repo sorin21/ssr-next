@@ -7,5 +7,3 @@
  From store.js we send in withRedux.js the initialState. 
  The name initialState should be the same in both files.
 
-6. Install mongoose
-  https://mongoosejs.com/
