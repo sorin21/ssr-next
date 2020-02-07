@@ -5,5 +5,3 @@
 4. Create _app.js in pages
 5. Create store.js file and withRedux.js HOC
 
-6. Install mongoose
-  https://mongoosejs.com/

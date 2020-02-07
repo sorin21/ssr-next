@@ -1,0 +1,88 @@
+1. npm init -y
+2. npm i next react react-dom react-redux redux redux-devtools-extension redux-promise axios express mongoose body-parser dotenv
+3. npm i --save-dev nodemon
+4. inside package.json
+  "dev": "next",
+  "build": "next build"
+
+5. Install formik for contact page form 
+  npm i formik
+
+6. Install nodemon
+  npm i --save-dev nodemon
+
+  We add nodemon to package.json:
+
+  "dev": "nodemon -w server.js server.js",
+  "build": "next build",
+  "start": "NODE_ENV=production node server.js"
+
+  Create a file nodemon.json and add and our name server.js must be the same with the name from "watch":
+  {
+    "verbose": true,
+    "ignore": ["node_modules", ".next"],
+    "watch": ["server/**/*", "index.js"],
+    "ext": "js json"
+  }
+  https://whoisryosuke.com/blog/2018/nextjs-tip-hot-reloading-for-dynamic-servers/
+
+7. Connect to mongodb
+
+8. Create models
+  pizza.js, site.js, messages.js
+
+  We require these models inside server.js
+
+9. Create routes
+  We use pizzas.json to not write all data, but just to copy and paste in postman every pizza data
+  Inside server.js create a route for:
+  - Posting Pizza
+    server.post('/pizza', (request, response) => {
+  - Get All Pizzas
+    server.get('/pizza', (req, res) => {
+
+10. Change the database name:
+  Inside this we have test db:
+    mongodb+srv://sorin:DragonLe3@pizza-b7tot.mongodb.net/test?retryWrites=true&w=majority"
+  so will change it with pizzaSite
+  mongodb+srv://sorin:DragonLe3@pizza-b7tot.mongodb.net/pizzaSite?retryWrites=true&w=majority"
+
+11. In index.js in pages add: 
+  static async getInitialProps() {}
+
+  and pass pizzasData to:
+    <Featured pizza={pizzasData} />
+    <PizzasList pizza={pizzasData} />
+
+  Inside Featured cach the props and pass them inside component.
+
+  Add trycatch in this index.js, pages, and the same in index.js, pizzas.
+
+12. On Atlas, under pizzaSite database, add sites collection.
+  Click on insert document and add manually this data:
+  name:"Pizzeria"
+  phone:"0040 743212124"
+  address:"12 Elm Street, NH"
+  email:"pizzeria@gmail.com"
+
+  Inside server.js add route for /site 
+  Inside withRedux add trycatch for axios.get(/site) and put the response in siteData. Then get inside _app.js this siteData.
+
+13. Add Redux 
+  Inside store folder add actions and reducers folders.
+  Create message reducer and sendMessage, clearMessage action.
+  Create new route for messages:
+  server.post('/messages', (req, res) => {
+
+  On contant.js hide form when the message is sent, checking the msgDone prop.
+
+7. Create .env file and add MONGO_SERV  const with the mongoose user and pass
+  Install dotenv
+  - to load environment variables from a .env file into process.env
+  - we to .ignore this file, because has sesitive information
+  - without NextJS using .env will be very easy, but with NextJS is harder
+  
+
+  https://jaketrent.com/post/environment-variables-in-nextjs/
+
+Va rog sa ma ajutati cu migrarea numarului de pe prepaid pe abonament DEMO angajat.
