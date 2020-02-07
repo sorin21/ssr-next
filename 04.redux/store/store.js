@@ -10,7 +10,6 @@ const exampleInitialState = {
     lastname: 'Jones'
   }]
 }
-// const initialState = {};
 const middleware = [thunk];
 
 const store = (initialState = exampleInitialState) => {

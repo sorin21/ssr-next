@@ -7,11 +7,11 @@ const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
 
 
 function getOrCreateStore(initialState) {
-  // If we are on the client browser, store everything on the window objects
+  // If we are on the server
   if (isServer) {
     return initializeStore(initialState)
   }
-
+  // If we are on the client browser, store everything on the window objects
   if (!window[__NEXT_REDUX_STORE__]) {
     window[__NEXT_REDUX_STORE__] = initializeStore(initialState)
   }
@@ -22,10 +22,11 @@ function getOrCreateStore(initialState) {
 export default App => {
   return class AppWithRedux extends React.Component {
     static async getInitialProps(appContext) {
+      // we need this const reduxStore to add to redux the initial state below
       const reduxStore = getOrCreateStore()
 
       // adding reduxStore to the app context 
-      appContext.ctx.reduxStore = reduxStore
+      appContext.ctx.reduxStore = reduxStore;
 
       let appProps = {}
       if (typeof App.getInitialProps === 'function') {
