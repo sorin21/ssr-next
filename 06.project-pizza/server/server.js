@@ -4,6 +4,8 @@ const next = require('next');
 const mongoose = require('mongoose');
 // we can't insert real data in express without body-parser
 const bodyParser = require('body-parser');
+require('dotenv').config();
+
 
 const Pizza = require('../models/pizza');
 const Site = require('../models/site');
@@ -11,6 +13,8 @@ const Message = require('../models/messages');
 
 // settings for development - ask node what is the environment
 const dev = process.env.NODE_ENV !== 'production';
+console.log('dev', dev)
+// dotenv.config({ path: '../.env' });
 
 // in express app usually we have
 // const app = express(), but here next is in top of everything
@@ -24,7 +28,7 @@ const handle = app.getRequestHandler();
 // connect Database
 // add useNewUrlParser and useCreateIndexto avoid mongo warnings
 mongoose
-  .connect("mongodb+srv://sorin:DragonLe3@pizza-b7tot.mongodb.net/pizzaSite?retryWrites=true&w=majority", {
+  .connect(process.env.MONGO_DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -93,7 +97,7 @@ app.prepare().then(() => {
   })
 
   // POST MESSAGES
-  server.post('/messages', (req, res) => {
+  server.post('/messages', (request, response) => {
     // get data json from body
     const messageData = request.body;
     // create a new message instance

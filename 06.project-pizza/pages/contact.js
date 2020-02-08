@@ -54,6 +54,12 @@ class Contact extends Component {
 
     return errors;
   }
+
+  componentWillUnmount() {
+    this.props.onClearMessage();
+  }
+
+
   render() {
     const showForm = (
       <Formik
@@ -155,7 +161,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSendMessage: (values) => dispatch(sendMessage(values))
+    onSendMessage: (values) => dispatch(sendMessage(values)),
+    onClearMessage: () => dispatch(clearMessage())
   }
 }
 

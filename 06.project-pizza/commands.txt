@@ -1,5 +1,5 @@
 1. npm init -y
-2. npm i next react react-dom react-redux redux redux-devtools-extension redux-promise axios express mongoose body-parser dotenv
+2. npm i next react react-dom react-redux redux redux-devtools-extension redux-promise axios express mongoose body-parser dotenv next-compose-plugins auth0-js jsonwebtoken express-jwt jwks-rsa
 3. npm i --save-dev nodemon
 4. inside package.json
   "dev": "next",
@@ -76,13 +76,31 @@
 
   On contant.js hide form when the message is sent, checking the msgDone prop.
 
-7. Create .env file and add MONGO_SERV  const with the mongoose user and pass
-  Install dotenv
-  - to load environment variables from a .env file into process.env
-  - we to .ignore this file, because has sesitive information
-  - without NextJS using .env will be very easy, but with NextJS is harder
-  
+14. Create a next.config.js file and put this connfig:
+  const { parsed: localEnv } = require('dotenv').config()
+  const webpack = require('webpack')
 
+  module.exports = {
+    webpack(config) {
+      config.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+
+      return config
+    }
+  }
   https://jaketrent.com/post/environment-variables-in-nextjs/
 
-Va rog sa ma ajutati cu migrarea numarului de pe prepaid pe abonament DEMO angajat.
+15. Create .env file and add MONGO_DB  const with the mongoose user and pass
+  Install dotenv and next-compose-plugins
+    - to load environment variables from a .env file into process.env
+    - we to .ignore this file, because has sesitive information
+    - without NextJS using .env will be very easy, but with NextJS is harder
+
+  Add inside server.js: 
+  require('dotenv').config();
+
+16. Install auth0
+
+  https://manage.auth0.com/
+
+  Add CLIENT_ID from setting this website inside .env file
+

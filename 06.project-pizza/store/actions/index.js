@@ -30,10 +30,11 @@ export const sendMessage = (data) => {
 
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 export const clearMessage = () => dispatch => {
-  const request = axios.get('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.data)
-  dispatch({
+  return dispatch({
     type: CLEAR_MESSAGE,
-    payload: request
+    // will change from Done to null
+    // the prop from server.js return response.json({ status: 'DONE' })
+    // when we change the menu and we look to redux console
+    payload: null
   });
 };

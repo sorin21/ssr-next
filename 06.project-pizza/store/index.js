@@ -6,13 +6,10 @@ import thunk from 'redux-thunk';
 
 import Reducers from './reducers';
 
-const exampleInitialState = {
-  user: []
-}
 // const initialState = {};
 const middleware = [thunk];
 
-const store = (initialState = exampleInitialState) => {
+const store = (initialState = {}) => {
   return createStore(
     Reducers,
     initialState,
