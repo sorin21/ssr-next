@@ -8,8 +8,7 @@ class Contact extends Component {
         <div>Contact</div>
         <div className="jsxStyled">Style with styled jsx</div>
         <style jsx>
-          {`
-            .jsxStyled {
+          {`.jsxStyled {
               color: blue;
             }
           `}

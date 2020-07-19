@@ -15,14 +15,22 @@ class MyApp extends App {
   }
 
   render() {
+    //  in pageProps we ge all the props from each component
+    //  so, for ex, if we are on Home(index.js) in pageProps we get: 
+    /*  
+      user: {firstName: "Sorin", lastName: "Dragomir"}
+      userData: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, 
+    */
+    // whatever chilren we render: Home(index.js), Contact, About, etc, we get the props from that child component
     const { Component, pageProps } = this.props;
+    // this is a small example how we can create here an object an inject it to all child componenents
     const newCar = {
       car: {
         brand: 'Toyota',
         color: 'Red'
       }
     }
-    // console.log(pageProps)
+    // this Component is the actual component that we render: Home(index.js), Contact, About, etc
     return <Component {...pageProps} {...newCar} />
   }
 }

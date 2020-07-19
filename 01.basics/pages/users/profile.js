@@ -21,6 +21,7 @@ class Profile extends Component {
     let user;
 
     try {
+      // we use query from context to get from the link the userId
       const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${query.userId}`);
       user = response.data;
     } catch (error) {
@@ -30,6 +31,7 @@ class Profile extends Component {
   }
 
   showUser = (user) => {
+    // return JSX
     return (
       <div>
         <div>Name:  {user.name}</div>

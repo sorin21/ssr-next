@@ -19,10 +19,16 @@ class About extends Component {
     Router.events.on('routeChangeStart', this.handleRouteChange);
     Router.events.on('routeChangeComplete', this.routeChangeComplete);
     Router.events.on('beforeHistoryChange', this.beforeHistoryChange);
+    // console.log(Router.pathname);
+    // console.log(Router.query);
     /*
+    // url is always equal with the current url
+    // as is where do we want to go
     Router.beforePopState(({ url, as, options }) => {
       if (as === '/contact') {
-        window.location.href = '/whatever';
+        // if u r on /contact and u go to /about, don't let the user to use back button to go to /contact
+        // redirect it to home /
+        window.location.href = '/';
         // always return false, because we want to disable back button
         return false;
       }
@@ -31,19 +37,19 @@ class About extends Component {
     })
     // redirect the user to go only on contact page from about page
     Router.replace('/contact');
+    }
     */
+    render() {
+      console.log("props from about", this.props)
+      return (
+        <MainLayout>
+          <h1>About</h1>
+          <Message />
+          <br />
+          <span onClick={() => Router.push('/contact')}>Click me now</span>
+        </MainLayout>
+      );
+    }
   }
-  render() {
-    console.log("props from about", this.props)
-    return (
-      <MainLayout>
-        <h1>About</h1>
-        <Message />
-        <br />
-        <span onClick={() => Router.push('/contact')}>Click me now</span>
-      </MainLayout>
-    );
-  }
-}
 
-export default About;
+  export default About;

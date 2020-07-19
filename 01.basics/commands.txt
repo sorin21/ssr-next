@@ -1,36 +1,186 @@
 1. npm init -y
 2. npm install --save next react react-dom express axios
 
-3. Next will look for pages folder where are the files for routing and index.js is the first file that will read
-  The same Next will look for static folder where is the css
+  Add in package.json:
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
 
-4. In index.js, or Home component, we get the props from getInitialProps()
+3. Create pages folder.
 
-5. CSS from static will be applied to all routes
+  Next will look for pages folder where are the files for routing.
+  index.js is the first file that NextJS will read. This will be Home in our application.
+  The same Next will look for static folder where is the css.
 
-6. Use this file to modify the default behaifior of the server
+  First time when we run:
+    npm run dev 
+  nextjs will create inside root, a folder called .next.
 
-7. Install Express
+  NextJS has hot reloading by default.
+
+  Create About, Contact components inside pages.
+
+  Create users folder inside pages. Because users is a new directory inside pages, needs a index.js. So when we go to 
+  the route /user, NextJS will run index.js.
+
+  Create the components folder and inside the includes folder, and inside put header.js file.
+
+  Create layout folder and inside add mainLayout.js. With this component will wrapp all other components.
+
+4. getInitialProps(context)
+  This getInitialProps(context) can be access only from files that are inside pages folder and always must return an object. 
+  The context has informations about our request and inside this function can be console.log(context) and the response 
+    will be in the terminal not in the browser console. That is because we work with NextJS, our code will run on the server 
+    and then will run on the browser.
+
+  So behind the scene, NextJS will run on the server and when everything will be ready, then will go to the browser.
+  It's like when we create on server a route we have access to req, res, etc, so here is the same.
+  We can destruct from context: pathname, query, asPath, req, res.
+  In index.js, or Home component, we get the props from getInitialProps({pathname, query, asPath, req, res})
+
+  Add getInitialProps in a functional component:
+  Profile.getInitialProps = ({pathname, query, asPath, req, res}) => { return {values: 'ala bala'}}
+
+  So we injecting props:
+    render() {
+    console.log('user', this.props.user)
+    ...
+
+  with the user:
+     user: {
+        firstName: "Sorin",
+        lastName: "Dragomir"
+      }
+
+  Tell to NextJS to wait until this is done:
+    const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+  
+  before we move to actual component. In this direction we use async and await.
+  And we have to use try and catch.
+
+  In a functional component we use getInitialProps() like this:
+    const Profile = props => {
+      console.log(props);
+      return <div>Profile</div>;
+    };
+
+    Profile.getInitialProps = async context => {
+      console.log(context);
+      return {
+        value: "ala bala portocala"
+      };
+    };
+
+5. Create a public folder and inside add static folder, inside css folder, and inside style.css. 
+  In the header.js, in Head add the style link:
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+
+  CSS from static will be applied to all routes
+
+5a. Next.js + CSS(we don't use this)
+  https://github.com/vercel/next-plugins/tree/master/packages/next-css
+
+  in next.config.js:
+    const withCSS = require('@zeit/next-css')
+    module.exports = withCSS({
+      cssModules: true
+    })
+
+  Create a folder called styles and inside main.css file.
+
+6. Query Params
+  On Home if we click on any user we get in browser:
+    http://localhost:3000/users/profile/1
+  
+  In index.js we add the query params:
+    <Link href={`/users/profile?userId=${user.id}`}>
+  
+  but is better to add query params like:
+    <Link href={{ pathname: '/users/profile', query: { userId: user.id } }}>
+      <a>{user.name}</a>
+    </Link>
+
+  then in Profile we get the query from getInitialProps({ query }) and we use it:
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${query.userId}`);
+  
+  We have to do a request to the server to bring that information, to catch the userId, that is why use async.
+
+  Because Profile is in the folder pages, we get in this.props a prop called url injected in our component. In url we get almost 
+    the same information that will get from context.
+
+Use this file to modify the default behaifior of the server
+
+7. Params
+  Still in profile.js.
+  Sometimes to pass Query Params is not enough, we will need to pass params. Params will be for ex the user id 3:
+    http://localhost:3000/users/profile/3
+
+  So we are going here
+    href={{ pathname: '/users/profile', query: { userId: user.id } }}
+  but in the browser history we want to keep:
+    as={`/users/profile/${user.id}`}
+
+  So what we do, we masking the real url(href), with a fake one(as).
+
+  Problem:
+  If we reload the browser on:
+    http://localhost:3000/users/profile/2
+  we get:
+    404 This page could not be found.
+
+  because NextJS on refresh page, wants to go on page 2, but this page doesn't exist, because this component 2 never loaded.
+
+  Fix:
+  We have to instruct the server how to handle this situation and we do it manually with Express.
+  We will create a file that will modify the default behavior of the server, that will be server.js
+
+8. Install Express
   npm install express
 
-  - for custom url, clean url, like 
+  - we install Express to give suport for custom url, clean url, like 
     http://localhost:3000/users/profile/3
     so we tell to express how to handle the url like the one above
 
-  - because now we work on development we use node to open server.js
+  - because now we work on development we use node to open server.js, so add in package.json:
     "dev": "node server.js"
 
   - in the production we want to start with node the server.js
     "start": "NODE_ENV=production node server.js"
 
-8. Create server.js file to combine next with express
+9. Create server.js file to combine next with express
   - in top of everything will still be next
   - first, before next will handle the routes, from pages folder, next will run the prepare() method
 
   - we still start development with
     npm run dev
 
-9. Router receive in props almost same props like withRouter, both imported from next/router
+10. withRouter
+  Router receive in props almost same props like withRouter, both imported from next/router
+  We can use withRouter instead of Link in any file from components(not in pages) to get pathname, query, to push to an specific url 
+    to redirect the user, etc
 
-10. We create _app.js to overwrite the default behavior. So now index.js is a children of _app.js.
-    Now Next will look first for _app.js.
+  Example in message.js:
+    import { withRouter } from 'next/router';
+    export default withRouter(Message);
+
+  2nd way to show information about the path is, if we use a component inside a component that is in pages, we can get the path 
+    from context and pass it as a prop to the child component.
+
+11. Router  
+  Example in about.js:
+    import Router from 'next/router';
+  
+  We get almost the same props like in withRouter.
+
+  Router.beforePopState() explained in about.js, used when the user clicks back button.
+
+12. App
+  This _app.js is working like a HOC.
+  Everything that we render in this app: /home, /about, etc, is going through _app.js
+  We create _app.js to overwrite the default behavior. So now index.js is a children of _app.js.
+  Now NextJS will look first for _app.js.
